@@ -1,0 +1,33 @@
+<Button>:
+    font_size: 56
+    canvas.after:
+        Color:
+            rgba: 255, 90, 90, 1
+        Line:
+            rectangle: self.x + 1, self.y + 1, self.width - 1, self.height - 1
+
+BoxLayout:
+    orientation: 'vertical'
+    BoxLayout:
+        orientation: 'horizontal'
+        TextInput:
+            id: input_miles
+            text: '10'
+            font_size: 48
+            on_text: app.handle_calculate()
+        BoxLayout:
+            orientation: 'vertical'
+            Button:
+                text: 'Up'
+                on_press: app.handle_increment(1)
+            Button:
+                text: 'Down'
+                on_press: app.handle_increment(-1)
+    Button:
+        text: 'Convert miles to kilometers'
+        on_press: app.handle_calculate()
+    Label:
+        id: output_label
+        font_size: 48
+        text: '16.09'
+        color: (100, 150, 150, 1)
